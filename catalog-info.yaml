@@ -1,0 +1,23 @@
+# The GitOps repository as a catalog entity in its own right.
+#
+# It is a Resource rather than a Component because nobody builds or ships it —
+# it is the place the application's deployment state lives. Registering it
+# means the relationship "this application deploys from that repository" is a
+# catalog fact rather than a naming convention, which is what lets Ask the
+# Platform resolve where a deployment change belongs without guessing.
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: checkout-platform-gitops
+  description: Deployment state for every service in checkout-platform, across dev, staging and production
+  annotations:
+    github.com/project-slug: bernadin-kabore/checkout-platform-gitops
+    platform.acme.io/application: checkout-platform
+  links:
+    - url: https://github.com/bernadin-kabore/checkout-platform-source
+      title: Application source
+      icon: github
+spec:
+  type: gitops-repo
+  owner: bernadin-kabore
+  system: checkout-platform
