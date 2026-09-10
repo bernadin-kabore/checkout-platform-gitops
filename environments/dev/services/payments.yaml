@@ -11,22 +11,17 @@
 # yours: change it in a pull request like any other deployment change.
 serviceName: payments
 environment: dev
-
 nameOverride: checkout-platform-payments
-
 image:
   repository: 382334305409.dkr.ecr.us-east-1.amazonaws.com/checkout-platform-payments
   # Placeholder until the first successful build of this service. Until then
   # ArgoCD will report the workload as unhealthy, which is accurate: nothing
   # has been published for it yet.
-  tag: "0.1.0"
-  digest: ""
-
+  tag: "fdd803d992952637bdb3f77aaebc8fcaa8c706ce"
+  digest: "sha256:36018c297b9d10d5196df30e038fcb3d7ed9294cf2674fa053331be1bca725c3"
 istio:
   gatewayHost: "checkout-platform-payments.dev.platform-demo.acme.io"
-
 provisionS3Bucket: false
-
 resources:
-  requests: { cpu: 50m, memory: 64Mi }
-  limits: { memory: 128Mi }
+  requests: {cpu: 50m, memory: 64Mi}
+  limits: {memory: 128Mi}
