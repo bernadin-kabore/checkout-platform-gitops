@@ -11,22 +11,17 @@
 # yours: change it in a pull request like any other deployment change.
 serviceName: auth
 environment: dev
-
 nameOverride: checkout-platform-auth
-
 image:
   repository: 382334305409.dkr.ecr.us-east-1.amazonaws.com/checkout-platform-auth
   # Placeholder until the first successful build of this service. Until then
   # ArgoCD will report the workload as unhealthy, which is accurate: nothing
   # has been published for it yet.
-  tag: "0.1.0"
-  digest: ""
-
+  tag: "5487d8db353f8e7affca86803d10e5f58bc0d8ca"
+  digest: "sha256:10fb815aeb362fd74ca31d2f1b713996f0bc0312dc3d50d43772615551e9d678"
 istio:
   gatewayHost: "checkout-platform-auth.dev.platform-demo.acme.io"
-
 provisionS3Bucket: false
-
 resources:
-  requests: { cpu: 50m, memory: 64Mi }
-  limits: { memory: 128Mi }
+  requests: {cpu: 50m, memory: 64Mi}
+  limits: {memory: 128Mi}
